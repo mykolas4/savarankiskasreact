@@ -1,7 +1,6 @@
 import Card from "../Card/Card";
 import styles from "./styles.module.css";
 
-
 const Main = ({ products, setProducts }) => {
   const removeCard = (id) => {
     const filteredCards = products.filter((s) => s.id !== id);
@@ -13,7 +12,7 @@ const Main = ({ products, setProducts }) => {
         products.map((d) => {
           return (
             <Card
-              title={d.title}
+            title={d.title.split(" ").slice(0, 5).join(" ")}
               description={d.description}
               rating={d.rating}
               count={d.count}

@@ -3,7 +3,8 @@ import axios from "axios";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Main from "../components/Main/Main";
-import App from "./App/Search"
+import App from "./App/Search";
+import React from "react";
 
 const MainPage = () => {
   const [products, setProducts] = useState(null);
@@ -19,9 +20,15 @@ const MainPage = () => {
     fetchData();
   }, []);
 
+  const [links, setLinks] = useState([
+    { url: "about", title: "About" },
+    { url: "main", title: "Main" },
+    { url: "contacts", title: "Contacts" },
+  ]);
+
   return (
     <>
-      <Header />
+      <Header links={links} />
       <Main products={products} setProducts={setProducts} />
       <Footer />
     </>
